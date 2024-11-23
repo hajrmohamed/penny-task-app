@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../dist/out-tsc",
+    "module": "commonjs",  // Adjust if you're using CommonJS modules
+    "target": "es2016",    // Ensure compatibility with the desired JavaScript version
+    "types": ["jest", "node"],  // Include Jest and Node types for testing and server-side code
+    "baseUrl": "./",           // Add baseUrl to ensure non-relative imports are correctly resolved
+    "paths": {                 // Optional: Use path aliasing for cleaner imports
+      "@app/*": ["src/app/*"]
+    }
+  },
+  "files": ["src/test-setup.ts"],  // Include the necessary test setup file
+  "include": [
+    "jest.config.ts",            // Include Jest config
+    "src/**/*.test.ts",          // Include all .test.ts files in src
+    "src/**/*.spec.ts",          // Include all .spec.ts files in src
+    "src/**/*.d.ts"              // Include all .d.ts declaration files in src
+  ],
+  "exclude": [
+    "node_modules"               // Exclude node_modules to avoid unnecessary file inclusion
+  ]
+}

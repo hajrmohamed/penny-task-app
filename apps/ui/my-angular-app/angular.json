@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "projects": {
+    "my-angular-app": {
+      "projectType": "application",
+      "root": "apps/ui/my-angular-app",
+      "sourceRoot": "apps/ui/my-angular-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ui/my-angular-app",
+            "index": "apps/ui/my-angular-app/src/index.html",
+            "main": "apps/ui/my-angular-app/src/main.ts",
+            "polyfills": "apps/ui/my-angular-app/src/polyfills.ts",
+            "tsConfig": "apps/ui/my-angular-app/tsconfig.app.json",
+            "assets": [
+              "apps/ui/my-angular-app/src/favicon.ico",
+              "apps/ui/my-angular-app/src/assets"
+            ],
+            "styles": ["apps/ui/my-angular-app/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ui/my-angular-app/src/environments/environment.ts",
+                  "with": "apps/ui/my-angular-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "my-angular-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "my-angular-app:build:production"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/ui/my-angular-app/src/test.ts",
+            "polyfills": "apps/ui/my-angular-app/src/polyfills.ts",
+            "tsConfig": "apps/ui/my-angular-app/tsconfig.spec.json",
+            "karmaConfig": "apps/ui/my-angular-app/karma.conf.js",
+            "assets": [
+              "apps/ui/my-angular-app/src/favicon.ico",
+              "apps/ui/my-angular-app/src/assets"
+            ],
+            "styles": ["apps/ui/my-angular-app/src/styles.css"],
+            "scripts": []
+          }
+        }
+      }
+    }
+  }
+}

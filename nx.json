@@ -1,0 +1,24 @@
+{
+  "npmScope": "penny-task-app",
+  "projects": {
+    "ui": {
+      "tags": []
+    },
+    "penny-task-api": {
+      "tags": []
+    }
+  },
+  "affected": {
+    "defaultBase": "main"
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
+  "defaultProject": "ui",
+  "generators": {
+    "@nx/angular:component": {
+      "style": "css"
+    }
+  }
+}
